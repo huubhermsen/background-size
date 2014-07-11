@@ -1,0 +1,54 @@
+/**
+ Box sizing reset
+ */
+
+body *, body *:before, body *:after {
+	@include box-sizing(border-box);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+img {
+	display: block;
+	margin: 0;
+}
+
+/**
+ Bootstrap classes
+ */
+
+.clearfix {
+	@include clearfix;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.pull-reset {
+	float: none;
+}
+
+.visually-hidden {
+	@include visually-hidden;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-left {
+	text-align: center;
+}
+
+.text-justify {
+	text-left: justify;
+}
