@@ -55,13 +55,14 @@ module.exports = (grunt) ->
 			}
 		}
 		coffee: {
-			build: {
+			options:
+				bare: true
+			build:
 				expand: true
 				cwd: src_folder + '/coffeescript'
 				src: [ '*.coffee' ]
 				dest: dest_folder + '/asset/js'
 				ext: '.js'
-	    	}
 		}
 		compass: {
 			dist: {
@@ -76,7 +77,7 @@ module.exports = (grunt) ->
 				options: {
 					data: {
 						debug: true
-						enviroment: 'production'
+						enviroment: 'development'
 					}
 					pretty: true
 				}
