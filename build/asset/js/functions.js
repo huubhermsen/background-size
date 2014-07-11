@@ -1,6 +1,8 @@
-(function() {
-  var $;
+var $;
 
-  $ = jQuery;
+$ = jQuery;
 
-}).call(this);
+$('._example').backgroundSize({
+  force: true,
+  type: 'contain'
+});
