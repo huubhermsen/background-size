@@ -541,45 +541,79 @@ img {
  * Project styling
  */
 /* line 21, ../../../source/sass/default.scss */
-body, html {
-  height: 100%;
-  min-height: 100%;
+.center-view {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
 }
 
-/* line 26, ../../../source/sass/default.scss */
-body {
-  background-image: -webkit-linear-gradient(-45deg, #fe1b29, #8c45a9);
-  background-image: -moz-linear-gradient(-45deg, #fe1b29, #8c45a9);
-  background-image: -o-linear-gradient(-45deg, #fe1b29, #8c45a9);
-  background-image: linear-gradient(-45deg, #fe1b29, #8c45a9);
+/* line 27, ../../../source/sass/default.scss */
+.demo {
+  margin: 30px 0;
+}
+/* line 29, ../../../source/sass/default.scss */
+.demo header {
   *zoom: 1;
+  margin: 0 -30px 20px;
 }
 /* line 7, ../../../source/sass/helpers/_mixins.scss */
-body:before, body:after {
+.demo header:before, .demo header:after {
   content: " ";
   display: table;
 }
 /* line 11, ../../../source/sass/helpers/_mixins.scss */
-body:after {
+.demo header:after {
+  clear: both;
+}
+/* line 32, ../../../source/sass/default.scss */
+.demo header h1 {
+  margin: 0 30px;
+  width: 100%;
+}
+/* line 36, ../../../source/sass/default.scss */
+.demo header h2 {
+  float: left;
+  width: 450px;
+  margin: 0 30px;
+  font-weight: 100;
+  color: #595959;
+}
+
+/* line 45, ../../../source/sass/default.scss */
+._demo-examples {
+  *zoom: 1;
+  margin: 0 -30px;
+}
+/* line 7, ../../../source/sass/helpers/_mixins.scss */
+._demo-examples:before, ._demo-examples:after {
+  content: " ";
+  display: table;
+}
+/* line 11, ../../../source/sass/helpers/_mixins.scss */
+._demo-examples:after {
   clear: both;
 }
 
-/* line 31, ../../../source/sass/default.scss */
-h1, h2 {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: 200;
-  color: white;
-  text-align: center;
-  text-shadow: 0 2px 4px #a2225c;
+/* line 49, ../../../source/sass/default.scss */
+._example {
+  position: relative;
+  float: left;
+  width: 450px;
+  height: 300px;
+  margin: 0 30px;
+  background-image: url(../image/demo.jpg);
+  background-repeat: no-repeat;
+  background-color: #f2f2f2;
 }
-
-/* line 40, ../../../source/sass/default.scss */
-h1 {
-  font-size: 56px;
-  margin: 100px 0 0;
+/* line 60, ../../../source/sass/default.scss */
+._example.centered {
+  background-position: center;
 }
-
-/* line 44, ../../../source/sass/default.scss */
-h2 {
-  letter-spacing: 2px;
+/* line 63, ../../../source/sass/default.scss */
+._example.cover {
+  background-size: cover;
+}
+/* line 66, ../../../source/sass/default.scss */
+._example.contain {
+  background-size: contain;
 }

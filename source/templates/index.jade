@@ -2,6 +2,13 @@ extends layout/layout
 
 append content
 	body
-		
-		h1 Nothing to see here yet
-		h2 - This project is still in development -
+		.center-view
+			
+			section.demo
+				header
+					h1 Centered images
+					h2 background-size: cover
+					h2 background-size: contain
+				section._demo-examples
+					._example.cover.centered( data-size = "cover" )
+					._example.contain.centered
