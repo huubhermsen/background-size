@@ -1,15 +1,21 @@
 (($) ->
 	
 	$.fn.extend
-		backgroundSize: (options) ->
+		background: (options) ->
 			
 			# Settings object
 			settings = 
-				type: 'cover'
+				size: 'cover'
 				force: false
 
 			# Extend settings
 			settings = $.extend settings, options
+
+			# Check if style element is present
+			style = $ 'style#bgs-styles'
+			if !style.length
+				style = $ '<style id="bgs-styles">.bgs-image { display: none; }</style>'
+				$('body').append style
 
 			# Private methods
 			calculate = (el, image, k) ->
@@ -30,25 +36,23 @@
 				left = 0
 				top = Math.ceil (newHeight - height) / 2
 
-				if settings.type is 'cover' && newHeight < height
+				if settings.size is 'cover' && newHeight < height
 					calc = imageHeight / height
 					newWidth = Math.ceil imageWidth / calc
 					left = Math.ceil (newWidth - width) / 2
 					top = 0
 
-				if settings.type is 'contain' && newHeight > height
+				if settings.size is 'contain' && newHeight > height
 					calc = imageHeight / height
 					newWidth = Math.ceil imageWidth / calc
 					left = Math.ceil (newWidth - width) / 2
 					top = 0
 
-				$('body').append '<style>.bgs' + k + ' { position: absolute; display: block; left: ' + -left + 'px; top: ' + -top + 'px; width: ' + newWidth + 'px; clip: rect(' + top + 'px, ' + (width + left) + 'px, ' + (height + top) + 'px, ' + left + 'px); }</style>'
-
-				
-				#clip: 
+				style.append '.bgs' + k + ' { position: absolute; display: block; left: ' + -left + 'px; top: ' + -top + 'px; width: ' + newWidth + 'px; clip: rect(' + top + 'px, ' + (width + left) + 'px, ' + (height + top) + 'px, ' + left + 'px); }'
 
 			# Loop through elements
-			@each (k, e) ->
+			@each () ->
+				k = Math.ceil Math.random() * 100000001
 				ref = $ @
 
 				if @style.backgroundSize isnt undefined and settings.force is false
@@ -60,12 +64,14 @@
 				path = res[1]
 				image = $ '<img src=' + path + ' class="bgs-image bgs' + k + '" />'
 
-
-				$('body').append '<style>.bgs-image { display: none; }</style>'
 				#console.log $(@).css 'backgroundPositionY'
 
 				calculate ref, image, k
 				ref.append image
+
+				ref.on 'resize', () ->
+					console.log 'resize'
+					calculate ref, image, k
 
 				return
 

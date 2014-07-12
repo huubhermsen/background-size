@@ -2,7 +2,12 @@ var $;
 
 $ = jQuery;
 
-$('._example').backgroundSize({
+$('._example.cover').background({
   force: true,
-  type: 'contain'
+  size: 'cover'
+});
+
+$('._example.contain').background({
+  force: true,
+  size: 'contain'
 });
