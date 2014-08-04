@@ -1,2 +1,2 @@
 $ = jQuery
-$('._example').backgroundSize { force: true, type: 'contain' }
+#$('._example').backgroundSize { force: true, type: 'contain' }
