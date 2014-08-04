@@ -35,7 +35,7 @@ body {
  * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-/* line 43, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 32, ../../../source/sass/3rdparty/_normalize.scss */
 article,
 aside,
 details,
@@ -55,7 +55,7 @@ summary {
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-/* line 55, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 52, ../../../source/sass/3rdparty/_normalize.scss */
 audio,
 canvas,
 progress,
@@ -80,7 +80,7 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-/* line 76, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 75, ../../../source/sass/3rdparty/_normalize.scss */
 [hidden],
 template {
   display: none;
@@ -99,7 +99,7 @@ a {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-/* line 96, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 95, ../../../source/sass/3rdparty/_normalize.scss */
 a:active,
 a:hover {
   outline: 0;
@@ -118,7 +118,7 @@ abbr[title] {
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-/* line 116, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 115, ../../../source/sass/3rdparty/_normalize.scss */
 b,
 strong {
   font-weight: bold;
@@ -162,7 +162,7 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-/* line 160, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 159, ../../../source/sass/3rdparty/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -230,7 +230,7 @@ pre {
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-/* line 230, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 227, ../../../source/sass/3rdparty/_normalize.scss */
 code,
 kbd,
 pre,
@@ -251,7 +251,7 @@ samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-/* line 254, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 250, ../../../source/sass/3rdparty/_normalize.scss */
 button,
 input,
 optgroup,
@@ -279,7 +279,7 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-/* line 276, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 275, ../../../source/sass/3rdparty/_normalize.scss */
 button,
 select {
   text-transform: none;
@@ -292,7 +292,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-/* line 291, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 288, ../../../source/sass/3rdparty/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -306,7 +306,7 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-/* line 301, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 300, ../../../source/sass/3rdparty/_normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -315,7 +315,7 @@ html input[disabled] {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-/* line 310, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 309, ../../../source/sass/3rdparty/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -338,7 +338,7 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-/* line 333, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 332, ../../../source/sass/3rdparty/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -352,7 +352,7 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-/* line 345, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 344, ../../../source/sass/3rdparty/_normalize.scss */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto;
@@ -378,7 +378,7 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-/* line 369, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 368, ../../../source/sass/3rdparty/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -434,7 +434,7 @@ table {
   border-spacing: 0;
 }
 
-/* line 423, ../../../source/sass/3rdparty/_normalize.scss */
+/* line 422, ../../../source/sass/3rdparty/_normalize.scss */
 td,
 th {
   padding: 0;
@@ -460,8 +460,8 @@ th {
  */
 /* line 5, ../../../source/sass/helpers/_utilities.scss */
 body *, body *:before, body *:after {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -546,12 +546,18 @@ img {
   width: 960px;
   margin: 0 auto;
 }
+@media screen and (min-width: 1200px) {
+  /* line 21, ../../../source/sass/default.scss */
+  .center-view {
+    width: 1140px;
+  }
+}
 
-/* line 27, ../../../source/sass/default.scss */
+/* line 30, ../../../source/sass/default.scss */
 .demo {
   margin: 30px 0;
 }
-/* line 29, ../../../source/sass/default.scss */
+/* line 32, ../../../source/sass/default.scss */
 .demo header {
   *zoom: 1;
   margin: 0 -30px 20px;
@@ -565,12 +571,12 @@ img {
 .demo header:after {
   clear: both;
 }
-/* line 32, ../../../source/sass/default.scss */
+/* line 35, ../../../source/sass/default.scss */
 .demo header h1 {
   margin: 0 30px;
   width: 100%;
 }
-/* line 36, ../../../source/sass/default.scss */
+/* line 39, ../../../source/sass/default.scss */
 .demo header h2 {
   float: left;
   width: 450px;
@@ -578,8 +584,14 @@ img {
   font-weight: 100;
   color: #595959;
 }
+@media screen and (min-width: 1200px) {
+  /* line 39, ../../../source/sass/default.scss */
+  .demo header h2 {
+    width: 540px;
+  }
+}
 
-/* line 45, ../../../source/sass/default.scss */
+/* line 51, ../../../source/sass/default.scss */
 ._demo-examples {
   *zoom: 1;
   margin: 0 -30px;
@@ -594,7 +606,7 @@ img {
   clear: both;
 }
 
-/* line 49, ../../../source/sass/default.scss */
+/* line 55, ../../../source/sass/default.scss */
 ._example {
   position: relative;
   float: left;
@@ -605,15 +617,23 @@ img {
   background-repeat: no-repeat;
   background-color: #f2f2f2;
 }
-/* line 60, ../../../source/sass/default.scss */
+/* line 66, ../../../source/sass/default.scss */
 ._example.centered {
   background-position: center;
 }
-/* line 63, ../../../source/sass/default.scss */
+/* line 69, ../../../source/sass/default.scss */
 ._example.cover {
   background-size: cover;
+  background-position: 100% -100px;
 }
-/* line 66, ../../../source/sass/default.scss */
+/* line 73, ../../../source/sass/default.scss */
 ._example.contain {
   background-size: contain;
+  background-position: 50% 50%;
+}
+@media screen and (min-width: 1200px) {
+  /* line 55, ../../../source/sass/default.scss */
+  ._example {
+    width: 540px;
+  }
 }

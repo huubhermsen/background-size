@@ -27,7 +27,7 @@ module.exports = (grunt) ->
 			}
 			coffee: {
 				files: [ src_files + '*.coffee' ]
-				tasks: [ 'coffee' ]
+				tasks: [ 'coffee', 'uglify' ]
 			}
 			jade: {
 				files: [ src_files + '*.jade' ]
@@ -63,6 +63,18 @@ module.exports = (grunt) ->
 				src: [ '*.coffee' ]
 				dest: dest_folder + '/asset/js'
 				ext: '.js'
+		}
+		uglify: {
+			options: {
+				compress: {
+					drop_console: true
+				}
+			}
+			build: {
+				files: {
+					'build/asset/js/background-size.min.js': [ 'build/asset/js/background-size.js' ]
+				}
+			}
 		}
 		compass: {
 			dist: {
@@ -127,6 +139,6 @@ module.exports = (grunt) ->
 		}
 	}
 
-	grunt.registerTask 'build', [ 'clean', 'copy:javascript', 'copy:images', 'copy:fonts', 'coffee', 'jade', 'compass' ]
+	grunt.registerTask 'build', [ 'clean', 'copy:javascript', 'copy:images', 'copy:fonts', 'coffee', 'uglify', 'jade', 'compass' ]
 	grunt.registerTask 'default', [ 'build', 'connect', 'watch' ]
 	grunt.registerTask 'optimize', [ 'imagemin' ]
