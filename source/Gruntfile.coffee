@@ -23,7 +23,7 @@ module.exports = (grunt) ->
 			}
 			sass: {
 				files: [ 'demo_files/sass/**/*.{scss,sass}' ]
-				tasks: [ 'compass:demo', 'cssmin' ]
+				tasks: [ 'compass:demo' ]
 			}
 			jade: {
 				files: [ 'demo_files/jade/**/*.jade' ]
