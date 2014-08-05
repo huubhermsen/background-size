@@ -1,3 +1,3 @@
 $ = jQuery
-$('._example.cover').background { size: 'cover' }
-$('._example.contain').background { size: 'contain' }
+$('._example.cover.render').cover()
+$('._example.contain.render').contain()

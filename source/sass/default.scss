@@ -50,16 +50,15 @@
 }
 ._demo-examples {
 	@include clearfix;
-	margin: 0 -30px;
+	margin: 30px -30px;
 }
 ._example {
-	position: relative;
 	float: left;
 	width: 450px;
 	height: 300px;
 	margin: 0 30px;
 	background: {
-		image: url(../image/demo.jpg);
+		image: url(../image/demo-wide.jpg);
 		repeat: no-repeat;
 		color: tint(black, 95%);
 	}
@@ -68,11 +67,11 @@
 	}
 	&.cover {
 		background-size: cover;
-		background-position: 100% -100px;
+		background-position: 0 0;
 	}
 	&.contain {
 		background-size: contain;
-		background-position: 50% 50%;
+		background-position: 200% 150%;
 	}
 	@media screen and (min-width: 1200px) {
 		width: 540px;

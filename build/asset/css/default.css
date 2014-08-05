@@ -594,7 +594,7 @@ img {
 /* line 51, ../../../source/sass/default.scss */
 ._demo-examples {
   *zoom: 1;
-  margin: 0 -30px;
+  margin: 30px -30px;
 }
 /* line 7, ../../../source/sass/helpers/_mixins.scss */
 ._demo-examples:before, ._demo-examples:after {
@@ -608,28 +608,27 @@ img {
 
 /* line 55, ../../../source/sass/default.scss */
 ._example {
-  position: relative;
   float: left;
   width: 450px;
   height: 300px;
   margin: 0 30px;
-  background-image: url(../image/demo.jpg);
+  background-image: url(../image/demo-wide.jpg);
   background-repeat: no-repeat;
   background-color: #f2f2f2;
 }
-/* line 66, ../../../source/sass/default.scss */
+/* line 65, ../../../source/sass/default.scss */
 ._example.centered {
   background-position: center;
 }
-/* line 69, ../../../source/sass/default.scss */
+/* line 68, ../../../source/sass/default.scss */
 ._example.cover {
   background-size: cover;
-  background-position: 100% -100px;
+  background-position: 0 0;
 }
-/* line 73, ../../../source/sass/default.scss */
+/* line 72, ../../../source/sass/default.scss */
 ._example.contain {
   background-size: contain;
-  background-position: 50% 50%;
+  background-position: 200% 150%;
 }
 @media screen and (min-width: 1200px) {
   /* line 55, ../../../source/sass/default.scss */
