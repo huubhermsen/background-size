@@ -43,7 +43,7 @@ $('.demo-block').cover();
 All settings and paths will be inherited from the stylesheet you just need to tell the plugin what type of sizing it should use. Check out the demo page for more information and options.
 
 ## What does it not do?
-The plugin only works with the `cover` and `contain` values for the background sizing. Pixel or percentage values are (currently) not supported. 
+The plugin only works with the `cover` and `contain` values for the background sizing. Pixel or percentage values are (currently) not supported, and might never be (see [Work in progress](#work-in-progress)).
 
 ## Work in progress
 This is the preliminary to-do list for this plugin's development:
@@ -51,7 +51,6 @@ This is the preliminary to-do list for this plugin's development:
 * I'm still implementing repeat parameters. Even though I've never used anything else then `background-repeat: no-repeat;` when using `background-size:` `cover` or `contain`, I'm still implementing this for other users who might.
 * Still hesitating to implement pixel and percentage value for `background-size`, I'm leaning towards **no**.
 * Ability to pass image url and position paramaters directly to the plugin, mostly for testing.
-* Bug fixing... If needed.
 
 
 
