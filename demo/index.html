@@ -109,7 +109,7 @@ $('.element').contain()</pre>
     </table>
   </section>
   <h2>The demo code</h2>
-  <p>The actual code from demo.js to render the examples below:</p>
+  <p>The actual code from demo.js to render the examples above. See we're not using the shorthand function to make shure the plugin is always executing, regardless what browser you're on.</p>
   <section class="demo">
     <pre class="prettyprint linenums">(function(window, $) {
    $('.cover').background({
@@ -121,7 +121,14 @@ $('.element').contain()</pre>
        size: 'contain'
    });
 })(window, jQuery);</pre>
-    <p class="disclaimer">No actual <a href="http://starwars.wikia.com/wiki/Wookiee" target="_blank">wookiees </a>were used during the development of this plugin. A physically de-evolving human, on the other hand, was. The demo images used were found using a image search and no author could be found. If you're the author of one of the images and want to be mentioned (or want them removed) just let me know and I'll act accordingly.</p>
+  </section>
+  <p>Normally you would preferably use the shorthand functions and handle all other settings via the stylesheet.</p>
+  <section class="demo">
+    <pre class="prettyprint linenums">(function(window, $) {
+   $('.cover').cover();
+   $('.contain').contain();
+})(window, jQuery);</pre>
+    <p class="disclaimer">No actual <a href="http://starwars.wikia.com/wiki/Wookiee" target="_blank">wookiees </a>were used during the development of this plugin. A physically de-evolving <a href="https://github.com/huubhermsen" target="_blank">human</a>, on the other hand, was. The demo images used were found using a image search and no author could be found. If you're the author of one of the images and want to be mentioned (or want them removed) just let me know and I'll act accordingly.</p>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js" type="text/javascript"></script>
