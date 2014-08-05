@@ -1,18 +1,20 @@
 {
-  "name": "GruntDemo",
+  "name": "BackgroundSize",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huubhermsen/background-size.git"
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-uglify": "~0.5.0",
-    "grunt-contrib-coffee": "0.10.1",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-compass": "~0.9.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-cssmin": "~0.10.0",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-imagemin": "~0.7.1",
-    "grunt-contrib-jade": "~0.12.0",
+    "grunt-contrib-coffee": "0.10.1",
+    "grunt-contrib-compass": "~0.9.0",
     "grunt-contrib-connect": "~0.8.0",
-    "load-grunt-tasks": "~0.6.0"
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.10.0",
+    "grunt-contrib-jade": "~0.12.0",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "load-grunt-tasks": "^0.6.0"
   }
 }

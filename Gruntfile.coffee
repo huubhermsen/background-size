@@ -1,144 +1,128 @@
 "use strict"
 
-###
-Set paths
-###
-src_folder = 'source'
-dest_folder = 'build'
-src_files = src_folder + '/**/'
-
-###
-Grunt setup
-###
+# Grunt setup
 module.exports = (grunt) ->
 
+	# Load all dependent npm tasks
 	require('load-grunt-tasks')(grunt);
 
+	# Init config
 	grunt.initConfig {
+		# Read package file
 		pkg: grunt.file.readJSON 'package.json'
+		
+		# Configure watch task
 		watch: {
 			options: {
 				livereload: 8000
 				spawn: false
 			}
-			sass: {
-				files: [ src_files + '*.scss' ]
-				tasks: [ 'compass' ]
-			}
 			coffee: {
-				files: [ src_files + '*.coffee' ]
+				files: [ 'source/**/*.coffee' ]
 				tasks: [ 'coffee', 'uglify' ]
 			}
+			sass: {
+				files: [ 'source/demo_files/sass/**/*.{scss,sass}' ]
+				tasks: [ 'compass:demo', 'cssmin' ]
+			}
 			jade: {
-				files: [ src_files + '*.jade' ]
+				files: [ 'source/demo_files/jade/**/*.jade' ]
 				tasks: [ 'jade' ]
 			}
-			javascript: {
-				files: [ src_files + '*.js' ]
-				tasks: [ 'copy:javascript' ]
-			}
 			images: {
-				files: [ src_files + '*.{png,jpg,gif,svg}' ]
-				tasks: [ 'copy:images' ]
+				files: [ 'source/demo_files/images/**/*.{png,jpg,gif,svg}' ]
+				tasks: [ 'copy' ]
 			}
-			fonts: {
-				files: [ src_files + '*.{woff,svg,ttf,otf,eot}' ]
-				tasks: [ 'copy:fonts' ]
-			}		
 		}
+
+		# Connect live server for testing
 		connect: {
 			target: {
 				options: {
 					port: 9000
-					base: dest_folder
+					base: 'demo'
 				}
 			}
 		}
+
+		# Coffeescript configuration
 		coffee: {
-			options:
-				bare: true
-			build:
-				expand: true
-				cwd: src_folder + '/coffeescript'
-				src: [ '*.coffee' ]
-				dest: dest_folder + '/asset/js'
-				ext: '.js'
-		}
-		uglify: {
 			options: {
-				compress: {
-					drop_console: true
-				}
+				bare: true
 			}
-			build: {
+			compile: {
 				files: {
-					'build/asset/js/background-size.min.js': [ 'build/asset/js/background-size.js' ]
+					'background-size.js': [ 'source/background-size.coffee' ]
+					'demo/asset/js/background-size.js': [ 'source/background-size.coffee' ]
+					'demo/asset/js/demo.js': [ 'source/demo_files/coffee/demo.coffee' ]
 				}
 			}
 		}
+
+		# Sass configuration using compass
 		compass: {
-			dist: {
+			demo: {
 				options: {
-					sassDir: src_folder + '/sass'
-					cssDir: dest_folder + '/asset/css'
+					sassDir: 'source/demo_files/sass'
+					cssDir: 'demo/asset/css'
+					relativeAssets: true
 				}
 			}
 		}
+
+		# Jade configuration
 		jade: {
 			compile: {
 				options: {
 					data: {
 						debug: true
-						enviroment: 'development'
+						livereload: true
 					}
 					pretty: true
 				}
 				files: [{
-      				expand: true
-      				cwd: src_folder + '/templates'
-      				src: [ '*.jade', '!/includes/*.jade' ]
-      				dest: dest_folder
-      				ext: '.html'
-    			}]
-			}
-		}
-		clean: [ dest_folder ]
-		copy: {
-			javascript: {
-				files: [{
-					expand: true,
-					cwd: src_folder + '/javascript',
-					src: [ '**' ],
-					dest: dest_folder + '/asset/js'
+					expand: true
+					cwd: 'source/demo_files/jade'
+					src: [ '**/*.jade', '!layout/**/*.jade' ]
+					dest: 'demo'
+					ext: '.html'
 				}]
 			}
+		}
+
+		copy: {
 			images: {
 				files: [{
 					expand: true,
-					cwd: src_folder + '/images',
+					cwd: 'source/demo_files/images',
 					src: [ '**' ],
-					dest: dest_folder + '/asset/image'
-				}]
-			}
-			fonts: {
-				files: [{
-					expand: true,
-					cwd: src_folder + '/font',
-					src: [ '**' ],
-					dest: dest_folder + '/asset/font'
+					dest: 'demo/asset/image'
 				}]
 			}
 		}
-		imagemin: {
-			static: {
-				files: [{
-					expand: true
-					src: [ dest_folder + '/asset/image/*.{png,jpg,gif}' ]
-				}]
+
+		# Clean demo folder on init
+		clean: {
+			init: [ 'demo' ]
+		}
+
+		# Minify javascript
+		uglify: {
+			options: {
+				mangle: {
+					except: [ 'jQuery', 'Modernizr' ]
+				}
+				compress: {
+					drop_console: true
+				}
+			}
+			javascript: {
+				files: {
+					'background-size.min.js': [ 'background-size.js' ]
+				}
 			}
 		}
 	}
 
-	grunt.registerTask 'build', [ 'clean', 'copy:javascript', 'copy:images', 'copy:fonts', 'coffee', 'uglify', 'jade', 'compass' ]
-	grunt.registerTask 'default', [ 'build', 'connect', 'watch' ]
-	grunt.registerTask 'optimize', [ 'imagemin' ]
+	grunt.registerTask 'init', [ 'clean:init', 'jade', 'copy', 'compass', 'coffee', 'uglify' ]
+	grunt.registerTask 'default', [ 'init', 'connect', 'watch' ]
