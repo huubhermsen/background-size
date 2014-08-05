@@ -6,6 +6,7 @@
 			# Contants
 			BGX = 'backgroundPositionX'
 			BGY = 'backgroundPositionY'
+			PNM = { top: '0%', right: '100%', bottom: '100%', left: '0%', center: '50%' }
 
 			# Private methods
 			position = (el, type, diff, overflow) ->
@@ -13,33 +14,25 @@
 				value = if el[0].currentStyle? then el[0].currentStyle[type] else el.css type
 				if /px/.test value
 					return -parseInt value.replace 'px', ''
-				else if /%/.test value
+				else 
+					if !/%/.test value then value = PNM[value]
+					if (type is BGX and overflow is true) or (type is BGY and overflow is false) then return 0
 					calcValue = (parseInt value.replace '%', '') / 100
 					-(calcValue * diff)
-				else
-					if (type is BGX and overflow is 1) or (type is BGY and overflow is 0) then return 0
-					switch value
-						when 'left', 'top'
-							-0
-						when 'right', 'bottom'
-							-diff
-						else
-							-(diff/2)
 
 			calculate = (el, image, k) ->
 				imageWidth = image.width()
 				imageHeight = image.height()
-				
+				elementWidth = el.width()
+				elementHeight = el.height()
+
 				if imageWidth is 0 or imageHeight is 0
 					setTimeout ->
 						calculate el, image, k
 					, 5
 					return
 
-				elementWidth = el.width()
-				elementHeight = el.height()
-
-				overflow = if elementWidth / imageWidth < elementHeight / imageHeight then 1 else 0
+				overflow = if elementWidth / imageWidth < elementHeight / imageHeight then (settings.size is 'contain') else (settings.size is 'cover')
 				width = newWidth = elementWidth
 				height = elementHeight
 
@@ -51,7 +44,7 @@
 					newWidth = Math.ceil imageWidth / (imageHeight / height)
 					left = position el, BGX, elementWidth - newWidth, overflow
 
-				extraClass = if el.css('position') is 'static' then ".bgs-parent-to#{k}{position:relative}" else ""
+				extraClass = if el.css('position') is 'static' then ".bgs-parent#{k}{position:relative}" else ""
 				style.append '<style>.bgs' + k + '{position:absolute;display:block;left:' + -left + 'px;top:' + -top + 'px;width: ' + newWidth + 'px;clip:rect(' + top + 'px,' + (width + left) + 'px,' + (height + top) + 'px,' + left + 'px);}' + extraClass + '</style>'
 
 			isIE = ->
@@ -85,7 +78,7 @@
 
 				path = res[1]
 				image = $ '<img src=' + path + ' class="bgs-image bgs' + randomKey + '" />'
-				reference.addClass "bgs-parent bgs-parent-to#{randomKey}"
+				reference.addClass "bgs-parent bgs-parent#{randomKey}"
 
 				calculate reference, image, randomKey
 				reference.append image
