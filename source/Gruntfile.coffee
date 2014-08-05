@@ -52,7 +52,7 @@ module.exports = (grunt) ->
 			}
 			compile: {
 				files: {
-					'background-size.js': [ 'background-size.coffee' ]
+					'../background-size.js': [ 'background-size.coffee' ]
 					'../demo/asset/js/background-size.js': [ 'background-size.coffee' ]
 					'../demo/asset/js/demo.js': [ 'demo_files/coffee/demo.coffee' ]
 				}
@@ -113,7 +113,7 @@ module.exports = (grunt) ->
 			}
 			javascript: {
 				files: {
-					'background-size.min.js': [ 'background-size.js' ]
+					'../background-size.min.js': [ '../background-size.js' ]
 				}
 			}
 		}
