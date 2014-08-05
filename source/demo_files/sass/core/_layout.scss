@@ -30,6 +30,48 @@ p, ul, ol {
 	line-height: 20px;
 }
 
+.disclaimer {
+	display: block;
+	border-left: 5px solid tint(black, 90%);
+	padding: 5px 10px;
+	margin-top: 3em;
+	font-size: 12px;
+	a {
+		color: inherit;
+		text-decoration: none;
+		font-weight: 500; 
+	}
+}
+
+table {
+	font-size: 14px;
+	line-height: 20px;
+	border: 1px solid tint(black, 90%);
+	color: tint(black, 40%);
+	th {
+		background-color: tint(black, 95%);
+		font-size: 15px;
+		text-align: left;
+		padding: 5px 10px;
+		padding-right: 30px;
+		border-left: 1px solid tint(black, 90%);
+	}
+	td {
+		padding: 5px 10px;
+		padding-right: 30px;
+		vertical-align: top;
+		border-left: 1px solid tint(black, 90%);
+	}
+	tbody, thead {
+		tr {
+			border-bottom: 1px solid tint(black, 90%);
+		}
+	}
+	code {
+		color: black;
+	}
+}
+
 .demo-container {
 	@include clearfix;
 	margin: 0 -30px;

@@ -8,7 +8,7 @@ append content
 		h1 Demonstrating the background-size plugin for jQuery
 
 		p Below is a small demonstration of the background-size plugin for jQuery.
-		p This plugin is available as two shorthand functions that don't receive any parameters. See the full plugin call after the examples.
+		p This plugin is available as two shorthand functions that don't receive any parameters. For more control over the output see the full plugin call after the examples.
 		pre.prettyprint.linenums
 			| $('.element').cover()
 			| $('.element').contain()
@@ -35,11 +35,70 @@ append content
 	h2 The background-size plugin
 	section.plugin
 		p 
-			| This demo uses the actual plugin which is able to force the execution of the plugin on non IE (below 9) browsers. The actual plugin can receive two parameters:
+			| This demo uses the actual plugin which is able to force the execution of the plugin on non IE (below 9) browsers. The actual plugin can receive five parameters:
 		pre.prettyprint.linenums
-			| $('.element').background({ force: true, size: 'cover' });
+			| $('.element').background({
+			|    force: true,
+			|    size: 'cover',
+			|    image: './path-to/image.jpg',
+			|    position: 'left top',
+			|    repeat: 'no-repeat'
+			| });
+		
+	h2 Parameters
+	p How to use the background plugin without the shorthand functions.
+	section.parameters
+		table( cellpadding = 0, cellspacing = 0, width = "100%" )
+			thead
+				tr
+					th Parameter
+					th Values
+					th Default
+					th Description
+			tbody
+				tr
+					td.nowrap: code force (boolean)
+					td.nowrap
+						code true 
+						| or
+						code  false
+					td: code false
+					td Set to true to force the execution of the plugin on browsers with native background-size support
+				tr
+					td.nowrap: code size (string)
+					td.nowrap
+						code cover 
+						| or
+						code  contain
+					td: code cover
+					td The type of background sizing
+				tr
+					td.nowrap: code image (string)
+					td.nowrap: code url
+					td: code null
+					td A path to a image used as background image. When empty it uses the image defined in the stylesheet. If both are empty the plugin will throw an error.
+				tr
+					td.nowrap: code position (string)
+					td.nowrap
+						code px 
+						| or 
+						code % 
+						| or
+						code  string
+					td.nowrap: code null
+					td The position of the background in CSS syntax (for example: 'left top'). When empty it uses the position defined in the stylesheet. If both are empty it defaults to '50% 50%'.
+				tr
+					td.nowrap: code repeat (string)
+					td.nowrap
+						code repeat 
+						| or
+						code  no-repeat
+					td.nowrap: code null
+					td Whether to repeat the background (only in the case of size: 'contain'). When empty it uses the setting defined in the stylesheet. If both are empty it defaults to 'no-repeat'.
 
-		p The actual code from demo.js to render the examples below:
+	h2 The demo code
+	p The actual code from demo.js to render the examples below:
+	section.demo
 		pre.prettyprint.linenums
 			| (function(window, $) {
 			|    $('.cover').background({
@@ -51,5 +110,10 @@ append content
 			|        size: 'contain'
 			|    });
 			| })(window, jQuery);
+
+		p.disclaimer 
+			| No actual 
+			a( href = "http://starwars.wikia.com/wiki/Wookiee", target = "_blank" ) wookiees 
+			| were used during the development of this plugin. A physically de-evolving human, on the other hand, was. The demo images used were found using a image search and no author could be found. If you're the author of one of the images and want to be mentioned (or want them removed) just let me know and I'll act accordingly.
 
 	

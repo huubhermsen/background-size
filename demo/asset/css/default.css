@@ -573,6 +573,11 @@ html {
   float: right;
 }
 
+/* line 9, ../../../source/demo_files/sass/core/_state.scss */
+.nowrap {
+  white-space: nowrap;
+}
+
 /**
  * Base layout
  */
@@ -610,6 +615,53 @@ p, ul, ol {
 }
 
 /* line 33, ../../../source/demo_files/sass/core/_layout.scss */
+.disclaimer {
+  display: block;
+  border-left: 5px solid #e5e5e5;
+  padding: 5px 10px;
+  margin-top: 3em;
+  font-size: 12px;
+}
+/* line 39, ../../../source/demo_files/sass/core/_layout.scss */
+.disclaimer a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* line 46, ../../../source/demo_files/sass/core/_layout.scss */
+table {
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid #e5e5e5;
+  color: #666666;
+}
+/* line 51, ../../../source/demo_files/sass/core/_layout.scss */
+table th {
+  background-color: #f2f2f2;
+  font-size: 15px;
+  text-align: left;
+  padding: 5px 10px;
+  padding-right: 30px;
+  border-left: 1px solid #e5e5e5;
+}
+/* line 59, ../../../source/demo_files/sass/core/_layout.scss */
+table td {
+  padding: 5px 10px;
+  padding-right: 30px;
+  vertical-align: top;
+  border-left: 1px solid #e5e5e5;
+}
+/* line 66, ../../../source/demo_files/sass/core/_layout.scss */
+table tbody tr, table thead tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* line 70, ../../../source/demo_files/sass/core/_layout.scss */
+table code {
+  color: black;
+}
+
+/* line 75, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container {
   *zoom: 1;
   margin: 0 -30px;
@@ -623,24 +675,24 @@ p, ul, ol {
 .demo-container:after {
   clear: both;
 }
-/* line 36, ../../../source/demo_files/sass/core/_layout.scss */
+/* line 78, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container .block {
   margin-top: 30px;
   width: 50%;
   float: left;
 }
-/* line 40, ../../../source/demo_files/sass/core/_layout.scss */
+/* line 82, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container .block h1 {
   margin: 0 30px;
   font-size: 18px;
   font-weight: 600;
 }
-/* line 47, ../../../source/demo_files/sass/core/_layout.scss */
+/* line 89, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container .block p {
   font-size: 14px;
   margin: 0 30px 1em;
 }
-/* line 51, ../../../source/demo_files/sass/core/_layout.scss */
+/* line 93, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container .block .element {
   position: relative;
   margin: 0 30px;
@@ -649,19 +701,19 @@ p, ul, ol {
   background-repeat: no-repeat;
   background-position: center;
 }
-/* line 61, ../../../source/demo_files/sass/core/_layout.scss */
+/* line 103, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container .block .cover {
   background-size: cover;
 }
-/* line 64, ../../../source/demo_files/sass/core/_layout.scss */
+/* line 106, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container .block .contain {
   background-size: contain;
 }
-/* line 67, ../../../source/demo_files/sass/core/_layout.scss */
+/* line 109, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container .block .portrait {
   background-image: url(../image/demo.jpg);
 }
-/* line 70, ../../../source/demo_files/sass/core/_layout.scss */
+/* line 112, ../../../source/demo_files/sass/core/_layout.scss */
 .demo-container .block .landscape {
   background-image: url(../image/demo-wide.jpg);
 }

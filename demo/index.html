@@ -16,7 +16,7 @@
   <section class="intro">
     <h1>Demonstrating the background-size plugin for jQuery</h1>
     <p>Below is a small demonstration of the background-size plugin for jQuery.</p>
-    <p>This plugin is available as two shorthand functions that don't receive any parameters. See the full plugin call after the examples.</p>
+    <p>This plugin is available as two shorthand functions that don't receive any parameters. For more control over the output see the full plugin call after the examples.</p>
     <pre class="prettyprint linenums">$('.element').cover()
 $('.element').contain()</pre>
   </section>
@@ -53,9 +53,64 @@ $('.element').contain()</pre>
   </section>
   <h2>The background-size plugin</h2>
   <section class="plugin">
-    <p>This demo uses the actual plugin which is able to force the execution of the plugin on non IE (below 9) browsers. The actual plugin can receive two parameters:</p>
-    <pre class="prettyprint linenums">$('.element').background({ force: true, size: 'cover' });</pre>
-    <p>The actual code from demo.js to render the examples below:</p>
+    <p>This demo uses the actual plugin which is able to force the execution of the plugin on non IE (below 9) browsers. The actual plugin can receive five parameters:</p>
+    <pre class="prettyprint linenums">$('.element').background({
+   force: true,
+   size: 'cover',
+   image: './path-to/image.jpg',
+   position: 'left top',
+   repeat: 'no-repeat'
+});</pre>
+  </section>
+  <h2>Parameters</h2>
+  <p>How to use the background plugin without the shorthand functions.</p>
+  <section class="parameters">
+    <table cellpadding="0" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Values</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="nowrap"><code>force (boolean)</code></td>
+          <td class="nowrap"><code>true </code>or<code> false</code></td>
+          <td><code>false</code></td>
+          <td>Set to true to force the execution of the plugin on browsers with native background-size support</td>
+        </tr>
+        <tr>
+          <td class="nowrap"><code>size (string)</code></td>
+          <td class="nowrap"><code>cover </code>or<code> contain</code></td>
+          <td><code>cover</code></td>
+          <td>The type of background sizing</td>
+        </tr>
+        <tr>
+          <td class="nowrap"><code>image (string)</code></td>
+          <td class="nowrap"><code>url</code></td>
+          <td><code>null</code></td>
+          <td>A path to a image used as background image. When empty it uses the image defined in the stylesheet. If both are empty the plugin will throw an error.</td>
+        </tr>
+        <tr>
+          <td class="nowrap"><code>position (string)</code></td>
+          <td class="nowrap"><code>px </code>or <code>% </code>or<code> string</code></td>
+          <td class="nowrap"><code>null</code></td>
+          <td>The position of the background in CSS syntax (for example: 'left top'). When empty it uses the position defined in the stylesheet. If both are empty it defaults to '50% 50%'.</td>
+        </tr>
+        <tr>
+          <td class="nowrap"><code>repeat (string)</code></td>
+          <td class="nowrap"><code>repeat </code>or<code> no-repeat</code></td>
+          <td class="nowrap"><code>null</code></td>
+          <td>Whether to repeat the background (only in the case of size: 'contain'). When empty it uses the setting defined in the stylesheet. If both are empty it defaults to 'no-repeat'.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <h2>The demo code</h2>
+  <p>The actual code from demo.js to render the examples below:</p>
+  <section class="demo">
     <pre class="prettyprint linenums">(function(window, $) {
    $('.cover').background({
        force: true,
@@ -66,6 +121,7 @@ $('.element').contain()</pre>
        size: 'contain'
    });
 })(window, jQuery);</pre>
+    <p class="disclaimer">No actual <a href="http://starwars.wikia.com/wiki/Wookiee" target="_blank">wookiees </a>were used during the development of this plugin. A physically de-evolving human, on the other hand, was. The demo images used were found using a image search and no author could be found. If you're the author of one of the images and want to be mentioned (or want them removed) just let me know and I'll act accordingly.</p>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js" type="text/javascript"></script>
