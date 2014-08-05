@@ -18,19 +18,19 @@ module.exports = (grunt) ->
 				spawn: false
 			}
 			coffee: {
-				files: [ 'source/**/*.coffee' ]
+				files: [ '**/*.coffee' ]
 				tasks: [ 'coffee', 'uglify' ]
 			}
 			sass: {
-				files: [ 'source/demo_files/sass/**/*.{scss,sass}' ]
+				files: [ 'demo_files/sass/**/*.{scss,sass}' ]
 				tasks: [ 'compass:demo', 'cssmin' ]
 			}
 			jade: {
-				files: [ 'source/demo_files/jade/**/*.jade' ]
+				files: [ 'demo_files/jade/**/*.jade' ]
 				tasks: [ 'jade' ]
 			}
 			images: {
-				files: [ 'source/demo_files/images/**/*.{png,jpg,gif,svg}' ]
+				files: [ 'demo_files/images/**/*.{png,jpg,gif,svg}' ]
 				tasks: [ 'copy' ]
 			}
 		}
@@ -40,7 +40,7 @@ module.exports = (grunt) ->
 			target: {
 				options: {
 					port: 9000
-					base: 'demo'
+					base: '../demo'
 				}
 			}
 		}
@@ -52,9 +52,9 @@ module.exports = (grunt) ->
 			}
 			compile: {
 				files: {
-					'background-size.js': [ 'source/background-size.coffee' ]
-					'demo/asset/js/background-size.js': [ 'source/background-size.coffee' ]
-					'demo/asset/js/demo.js': [ 'source/demo_files/coffee/demo.coffee' ]
+					'background-size.js': [ 'background-size.coffee' ]
+					'../demo/asset/js/background-size.js': [ 'background-size.coffee' ]
+					'../demo/asset/js/demo.js': [ 'demo_files/coffee/demo.coffee' ]
 				}
 			}
 		}
@@ -63,8 +63,8 @@ module.exports = (grunt) ->
 		compass: {
 			demo: {
 				options: {
-					sassDir: 'source/demo_files/sass'
-					cssDir: 'demo/asset/css'
+					sassDir: 'demo_files/sass'
+					cssDir: '../demo/asset/css'
 					relativeAssets: true
 				}
 			}
@@ -82,9 +82,9 @@ module.exports = (grunt) ->
 				}
 				files: [{
 					expand: true
-					cwd: 'source/demo_files/jade'
+					cwd: 'demo_files/jade'
 					src: [ '**/*.jade', '!layout/**/*.jade' ]
-					dest: 'demo'
+					dest: '../demo'
 					ext: '.html'
 				}]
 			}
@@ -94,16 +94,11 @@ module.exports = (grunt) ->
 			images: {
 				files: [{
 					expand: true,
-					cwd: 'source/demo_files/images',
+					cwd: 'demo_files/images',
 					src: [ '**' ],
-					dest: 'demo/asset/image'
+					dest: '../demo/asset/image'
 				}]
 			}
-		}
-
-		# Clean demo folder on init
-		clean: {
-			init: [ 'demo' ]
 		}
 
 		# Minify javascript
@@ -124,5 +119,5 @@ module.exports = (grunt) ->
 		}
 	}
 
-	grunt.registerTask 'init', [ 'clean:init', 'jade', 'copy', 'compass', 'coffee', 'uglify' ]
+	grunt.registerTask 'init', [ 'jade', 'copy', 'compass', 'coffee', 'uglify' ]
 	grunt.registerTask 'default', [ 'init', 'connect', 'watch' ]
