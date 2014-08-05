@@ -1,8 +1,10 @@
-extends layout/layout
+block vars
+	- var title = "BackgroundSize demo"
 
+extends layout/layout
 append content
-	body
-		.center-view
+
+	.center-view
 			
 			section.demo
 				header
@@ -12,3 +14,4 @@ append content
 				section._demo-examples
 					._example.cover.centered.render
 					._example.contain.centered.render
+		

@@ -1,24 +1,8 @@
 /**
- * Import compass
- */
-@import "compass";
-
-/**
- * Import vendor libraries
- */
-@import "3rdparty/normalize";
-
-/**
- * Import helpers
- */
-@import "helpers/mixins";
-@import "helpers/utilities";
-
-/**
- * Project styling
+ * Base layout
  */
 
-.center-view {
+ .center-view {
 	position: relative;
 	width: 960px;
 	margin: 0 auto;
