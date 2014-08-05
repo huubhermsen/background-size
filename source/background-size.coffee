@@ -23,14 +23,15 @@
 			calculate = (el, image, k) ->
 				imageWidth = image.width()
 				imageHeight = image.height()
-				elementWidth = el.width()
-				elementHeight = el.height()
 
 				if imageWidth is 0 or imageHeight is 0
 					setTimeout ->
 						calculate el, image, k
 					, 5
 					return
+
+				elementWidth = el.width()
+				elementHeight = el.height()
 
 				overflow = if elementWidth / imageWidth < elementHeight / imageHeight then (settings.size is 'contain') else (settings.size is 'cover')
 				width = newWidth = elementWidth
