@@ -459,6 +459,89 @@ th {
   padding: 0;
 }
 
+/* line 1, ../../../source/demo_files/sass/core/_prettify.scss */
+pre {
+  font-size: 14px;
+  padding: 9.5px !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  background-color: #fafafa !important;
+}
+
+/* line 8, ../../../source/demo_files/sass/core/_prettify.scss */
+li.L0, li.L1, li.L2, li.L3,
+li.L5, li.L6, li.L7, li.L8 {
+  list-style-type: decimal !important;
+}
+
+/* line 13, ../../../source/demo_files/sass/core/_prettify.scss */
+.com {
+  color: #93a1a1 !important;
+}
+
+/* line 14, ../../../source/demo_files/sass/core/_prettify.scss */
+.lit {
+  color: #195f91 !important;
+}
+
+/* line 15, ../../../source/demo_files/sass/core/_prettify.scss */
+.pun, .opn, .clo {
+  color: #93a1a1 !important;
+}
+
+/* line 16, ../../../source/demo_files/sass/core/_prettify.scss */
+.fun {
+  color: #dc322f !important;
+}
+
+/* line 17, ../../../source/demo_files/sass/core/_prettify.scss */
+.str, .atv {
+  color: #D14 !important;
+}
+
+/* line 18, ../../../source/demo_files/sass/core/_prettify.scss */
+.kwd, .prettyprint .tag {
+  color: #1e347b !important;
+}
+
+/* line 19, ../../../source/demo_files/sass/core/_prettify.scss */
+.typ, .atn, .dec, .var {
+  color: teal !important;
+}
+
+/* line 20, ../../../source/demo_files/sass/core/_prettify.scss */
+.pln {
+  color: #48484c !important;
+}
+
+/* line 22, ../../../source/demo_files/sass/core/_prettify.scss */
+.prettyprint {
+  background-color: #f7f7f9 !important;
+  border: 1px solid #e1e1e8 !important;
+}
+
+/* line 26, ../../../source/demo_files/sass/core/_prettify.scss */
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+  -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+  box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+/* line 33, ../../../source/demo_files/sass/core/_prettify.scss */
+ol.linenums {
+  padding: 0;
+  margin: 0 0 0 33px;
+  /* IE indents via margin-left */
+}
+
+/* line 37, ../../../source/demo_files/sass/core/_prettify.scss */
+ol.linenums li {
+  padding-left: 12px;
+  color: #bebec5;
+  line-height: 20px;
+  text-shadow: 0 1px 0 #fff;
+}
+
 /**
  * A better box-sizing setting
  */
@@ -485,7 +568,7 @@ html {
   float: left;
 }
 
-/* line 4, ../../../source/demo_files/sass/core/_state.scss */
+/* line 5, ../../../source/demo_files/sass/core/_state.scss */
 .pull-right {
   float: right;
 }
@@ -494,98 +577,91 @@ html {
  * Base layout
  */
 /* line 5, ../../../source/demo_files/sass/core/_layout.scss */
-.center-view {
-  position: relative;
-  width: 960px;
-  margin: 0 auto;
-}
-@media screen and (min-width: 1200px) {
-  /* line 5, ../../../source/demo_files/sass/core/_layout.scss */
-  .center-view {
-    width: 1140px;
-  }
-}
-
-/* line 14, ../../../source/demo_files/sass/core/_layout.scss */
-.demo {
-  margin: 30px 0;
-}
-/* line 16, ../../../source/demo_files/sass/core/_layout.scss */
-.demo header {
-  *zoom: 1;
-  margin: 0 -30px 20px;
-}
-/* line 7, ../../../source/demo_files/sass/core/_mixins.scss */
-.demo header:before, .demo header:after {
-  content: " ";
-  display: table;
-}
-/* line 11, ../../../source/demo_files/sass/core/_mixins.scss */
-.demo header:after {
-  clear: both;
-}
-/* line 19, ../../../source/demo_files/sass/core/_layout.scss */
-.demo header h1 {
-  margin: 0 30px;
-  width: 100%;
-}
-/* line 23, ../../../source/demo_files/sass/core/_layout.scss */
-.demo header h2 {
-  float: left;
-  width: 450px;
-  margin: 0 30px;
-  font-weight: 100;
-  color: #595959;
-}
-@media screen and (min-width: 1200px) {
-  /* line 23, ../../../source/demo_files/sass/core/_layout.scss */
-  .demo header h2 {
-    width: 540px;
-  }
-}
-
-/* line 35, ../../../source/demo_files/sass/core/_layout.scss */
-._demo-examples {
-  *zoom: 1;
-  margin: 30px -30px;
-}
-/* line 7, ../../../source/demo_files/sass/core/_mixins.scss */
-._demo-examples:before, ._demo-examples:after {
-  content: " ";
-  display: table;
-}
-/* line 11, ../../../source/demo_files/sass/core/_mixins.scss */
-._demo-examples:after {
-  clear: both;
-}
-
-/* line 39, ../../../source/demo_files/sass/core/_layout.scss */
-._example {
-  float: left;
-  width: 450px;
-  height: 300px;
-  margin: 0 30px;
-  background-image: url(../image/demo.jpg);
-  background-repeat: no-repeat;
+html {
   background-color: #f2f2f2;
 }
-/* line 49, ../../../source/demo_files/sass/core/_layout.scss */
-._example.centered {
+
+/* line 9, ../../../source/demo_files/sass/core/_layout.scss */
+body {
+  position: relative;
+  width: 960px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 50px;
+}
+
+/* line 17, ../../../source/demo_files/sass/core/_layout.scss */
+h1 {
+  margin: 0 0 1.5em;
+  font-weight: 100;
+}
+
+/* line 22, ../../../source/demo_files/sass/core/_layout.scss */
+h2 {
+  margin: 1.5em 0 0;
+  font-weight: 100;
+}
+
+/* line 27, ../../../source/demo_files/sass/core/_layout.scss */
+p, ul, ol {
+  color: #4c4c4c;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+/* line 33, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container {
+  *zoom: 1;
+  margin: 0 -30px;
+}
+/* line 7, ../../../source/demo_files/sass/core/_mixins.scss */
+.demo-container:before, .demo-container:after {
+  content: " ";
+  display: table;
+}
+/* line 11, ../../../source/demo_files/sass/core/_mixins.scss */
+.demo-container:after {
+  clear: both;
+}
+/* line 36, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container .block {
+  margin-top: 30px;
+  width: 50%;
+  float: left;
+}
+/* line 40, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container .block h1 {
+  margin: 0 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+/* line 47, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container .block p {
+  font-size: 14px;
+  margin: 0 30px 1em;
+}
+/* line 51, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container .block .element {
+  position: relative;
+  margin: 0 30px;
+  height: 240px;
+  background-color: #f2f2f2;
+  background-repeat: no-repeat;
   background-position: center;
 }
-/* line 52, ../../../source/demo_files/sass/core/_layout.scss */
-._example.cover {
+/* line 61, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container .block .cover {
   background-size: cover;
-  background-position: left top;
 }
-/* line 56, ../../../source/demo_files/sass/core/_layout.scss */
-._example.contain {
+/* line 64, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container .block .contain {
   background-size: contain;
-  background-position: center;
 }
-@media screen and (min-width: 1200px) {
-  /* line 39, ../../../source/demo_files/sass/core/_layout.scss */
-  ._example {
-    width: 540px;
-  }
+/* line 67, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container .block .portrait {
+  background-image: url(../image/demo.jpg);
+}
+/* line 70, ../../../source/demo_files/sass/core/_layout.scss */
+.demo-container .block .landscape {
+  background-image: url(../image/demo-wide.jpg);
 }

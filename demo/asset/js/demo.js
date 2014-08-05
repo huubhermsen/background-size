@@ -1,4 +1,10 @@
 (function(window, $) {
-  $('._example.cover.render').cover();
-  return $('._example.contain.render').contain();
+  $('.cover').background({
+    force: true,
+    size: 'cover'
+  });
+  $('.contain').background({
+    force: true,
+    size: 'contain'
+  });
 })(window, jQuery);

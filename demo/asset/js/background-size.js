@@ -1,46 +1,45 @@
 (function(window, $) {
   $.fn.extend({
     background: function(options) {
-      var BGX, BGY, calculate, isIE, position, settings, style;
+      var BGX, BGY, PNM, calculate, isIE, position, settings, style;
       BGX = 'backgroundPositionX';
       BGY = 'backgroundPositionY';
+      PNM = {
+        top: '0%',
+        right: '100%',
+        bottom: '100%',
+        left: '0%',
+        center: '50%'
+      };
       position = function(el, type, diff, overflow) {
         var calcValue, value;
         value = el[0].currentStyle != null ? el[0].currentStyle[type] : el.css(type);
         if (/px/.test(value)) {
           return -parseInt(value.replace('px', ''));
-        } else if (/%/.test(value)) {
-          calcValue = (parseInt(value.replace('%', ''))) / 100;
-          return -(calcValue * diff);
         } else {
-          if ((type === BGX && overflow === 1) || (type === BGY && overflow === 0)) {
+          if (!/%/.test(value)) {
+            value = PNM[value];
+          }
+          if ((type === BGX && overflow === true) || (type === BGY && overflow === false)) {
             return 0;
           }
-          switch (value) {
-            case 'left':
-            case 'top':
-              return -0;
-            case 'right':
-            case 'bottom':
-              return -diff;
-            default:
-              return -(diff / 2);
-          }
+          calcValue = (parseInt(value.replace('%', ''))) / 100;
+          return -(calcValue * diff);
         }
       };
       calculate = function(el, image, k) {
         var elementHeight, elementWidth, extraClass, height, imageHeight, imageWidth, left, newHeight, newWidth, overflow, top, width;
         imageWidth = image.width();
         imageHeight = image.height();
+        elementWidth = el.width();
+        elementHeight = el.height();
         if (imageWidth === 0 || imageHeight === 0) {
           setTimeout(function() {
             return calculate(el, image, k);
           }, 5);
           return;
         }
-        elementWidth = el.width();
-        elementHeight = el.height();
-        overflow = elementWidth / imageWidth < elementHeight / imageHeight ? 1 : 0;
+        overflow = elementWidth / imageWidth < elementHeight / imageHeight ? settings.size === 'contain' : settings.size === 'cover';
         width = newWidth = elementWidth;
         height = elementHeight;
         newHeight = imageHeight / (imageWidth / width);
@@ -50,7 +49,7 @@
           newWidth = Math.ceil(imageWidth / (imageHeight / height));
           left = position(el, BGX, elementWidth - newWidth, overflow);
         }
-        extraClass = el.css('position') === 'static' ? ".bgs-parent-to" + k + "{position:relative}" : "";
+        extraClass = el.css('position') === 'static' ? ".bgs-parent" + k + "{position:relative}" : "";
         return style.append('<style>.bgs' + k + '{position:absolute;display:block;left:' + -left + 'px;top:' + -top + 'px;width: ' + newWidth + 'px;clip:rect(' + top + 'px,' + (width + left) + 'px,' + (height + top) + 'px,' + left + 'px);}' + extraClass + '</style>');
       };
       isIE = function() {
@@ -85,7 +84,7 @@
         }
         path = res[1];
         image = $('<img src=' + path + ' class="bgs-image bgs' + randomKey + '" />');
-        reference.addClass("bgs-parent bgs-parent-to" + randomKey);
+        reference.addClass("bgs-parent bgs-parent" + randomKey);
         calculate(reference, image, randomKey);
         reference.append(image);
         reference.size = {
