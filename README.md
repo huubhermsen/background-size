@@ -51,6 +51,7 @@ This is the preliminary to-do list for this plugin's development:
 * I'm still implementing repeat parameters. Even though I've never used anything else then `background-repeat: no-repeat;` when using `background-size:` `cover` or `contain`, I'm still implementing this for other users who might.
 * Still hesitating to implement pixel and percentage value for `background-size`, I'm leaning towards **no**.
 * Ability to pass image url and position paramaters directly to the plugin, mostly for testing.
+* Make the plugin available for other frameworks and plain Javascript.
 
 
 
