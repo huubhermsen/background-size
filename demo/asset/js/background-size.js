@@ -32,14 +32,14 @@
         var elementHeight, elementWidth, extraClass, height, imageHeight, imageWidth, left, newHeight, newWidth, overflow, top, width;
         imageWidth = image.width();
         imageHeight = image.height();
-        elementWidth = el.width();
-        elementHeight = el.height();
         if (imageWidth === 0 || imageHeight === 0) {
           setTimeout(function() {
             return calculate(el, image, k);
           }, 5);
           return;
         }
+        elementWidth = el.width();
+        elementHeight = el.height();
         overflow = elementWidth / imageWidth < elementHeight / imageHeight ? 1 : 0;
         width = newWidth = elementWidth;
         height = elementHeight;
