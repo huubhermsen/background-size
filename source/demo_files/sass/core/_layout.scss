@@ -42,7 +42,7 @@
 	height: 300px;
 	margin: 0 30px;
 	background: {
-		image: url(../image/demo-wide.jpg);
+		image: url(../image/demo.jpg);
 		repeat: no-repeat;
 		color: tint(black, 95%);
 	}
@@ -51,11 +51,11 @@
 	}
 	&.cover {
 		background-size: cover;
-		background-position: 0 0;
+		background-position: left top;
 	}
 	&.contain {
 		background-size: contain;
-		background-position: 200% 150%;
+		background-position: center;
 	}
 	@media screen and (min-width: 1200px) {
 		width: 540px;

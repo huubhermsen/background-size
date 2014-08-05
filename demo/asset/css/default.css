@@ -565,7 +565,7 @@ html {
   width: 450px;
   height: 300px;
   margin: 0 30px;
-  background-image: url(../image/demo-wide.jpg);
+  background-image: url(../image/demo.jpg);
   background-repeat: no-repeat;
   background-color: #f2f2f2;
 }
@@ -576,12 +576,12 @@ html {
 /* line 52, ../../../source/demo_files/sass/core/_layout.scss */
 ._example.cover {
   background-size: cover;
-  background-position: 0 0;
+  background-position: left top;
 }
 /* line 56, ../../../source/demo_files/sass/core/_layout.scss */
 ._example.contain {
   background-size: contain;
-  background-position: 200% 150%;
+  background-position: center;
 }
 @media screen and (min-width: 1200px) {
   /* line 39, ../../../source/demo_files/sass/core/_layout.scss */
