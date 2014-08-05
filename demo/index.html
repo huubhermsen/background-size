@@ -57,9 +57,9 @@ $('.element').contain()</pre>
     <pre class="prettyprint linenums">$('.element').background({
    force: true,
    size: 'cover',
-   image: './path-to/image.jpg',
-   position: 'left top',
-   repeat: 'no-repeat'
+   image: './path-to/image.jpg', /** In development */
+   position: 'left top', /** In development */
+   repeat: 'no-repeat' /** In development */
 });</pre>
   </section>
   <h2>Parameters</h2>
@@ -88,19 +88,19 @@ $('.element').contain()</pre>
           <td>The type of background sizing</td>
         </tr>
         <tr>
-          <td class="nowrap"><code>image (string)</code></td>
+          <td class="nowrap"><code>image (string)</code><br />! In development</td>
           <td class="nowrap"><code>url</code></td>
           <td><code>null</code></td>
           <td>A path to a image used as background image. When empty it uses the image defined in the stylesheet. If both are empty the plugin will throw an error.</td>
         </tr>
         <tr>
-          <td class="nowrap"><code>position (string)</code></td>
+          <td class="nowrap"><code>position (string)</code><br />! In development</td>
           <td class="nowrap"><code>px </code>or <code>% </code>or<code> string</code></td>
           <td class="nowrap"><code>null</code></td>
           <td>The position of the background in CSS syntax (for example: 'left top'). When empty it uses the position defined in the stylesheet. If both are empty it defaults to '50% 50%'.</td>
         </tr>
         <tr>
-          <td class="nowrap"><code>repeat (string)</code></td>
+          <td class="nowrap"><code>repeat (string)</code><br />! In development</td>
           <td class="nowrap"><code>repeat </code>or<code> no-repeat</code></td>
           <td class="nowrap"><code>null</code></td>
           <td>Whether to repeat the background (only in the case of size: 'contain'). When empty it uses the setting defined in the stylesheet. If both are empty it defaults to 'no-repeat'.</td>

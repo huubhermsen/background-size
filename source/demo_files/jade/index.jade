@@ -40,9 +40,9 @@ append content
 			| $('.element').background({
 			|    force: true,
 			|    size: 'cover',
-			|    image: './path-to/image.jpg',
-			|    position: 'left top',
-			|    repeat: 'no-repeat'
+			|    image: './path-to/image.jpg', /** In development */
+			|    position: 'left top', /** In development */
+			|    repeat: 'no-repeat' /** In development */
 			| });
 		
 	h2 Parameters
@@ -73,12 +73,16 @@ append content
 					td: code cover
 					td The type of background sizing
 				tr
-					td.nowrap: code image (string)
+					td.nowrap
+						code image (string)
+						<br />! In development
 					td.nowrap: code url
 					td: code null
 					td A path to a image used as background image. When empty it uses the image defined in the stylesheet. If both are empty the plugin will throw an error.
 				tr
-					td.nowrap: code position (string)
+					td.nowrap
+						code position (string)
+						<br />! In development
 					td.nowrap
 						code px 
 						| or 
@@ -88,7 +92,9 @@ append content
 					td.nowrap: code null
 					td The position of the background in CSS syntax (for example: 'left top'). When empty it uses the position defined in the stylesheet. If both are empty it defaults to '50% 50%'.
 				tr
-					td.nowrap: code repeat (string)
+					td.nowrap
+						code repeat (string)
+						<br />! In development
 					td.nowrap
 						code repeat 
 						| or
