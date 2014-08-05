@@ -4,14 +4,52 @@ block vars
 extends layout/layout
 append content
 
-	.center-view
-			
-			section.demo
-				header
-					h1 Centered images
-					h2 background-size: cover
-					h2 background-size: contain
-				section._demo-examples
-					._example.cover.centered.render
-					._example.contain.centered.render
-		
+	section.intro
+		h1 Demonstrating the background-size plugin for jQuery
+
+		p Below is a small demonstration of the background-size plugin for jQuery.
+		p This plugin is available as two shorthand functions that don't receive any parameters. See the full plugin call after the examples.
+		pre.prettyprint.linenums
+			| $('.element').cover()
+			| $('.element').contain()
+
+	h2 The examples
+	section.demo-container
+		.block
+			header: h1 background-size: cover
+			p with a portrait oriented image
+			.element.cover.portrait
+		.block
+			header: h1 background-size: cover
+			p with a landscape oriented image
+			.element.cover.landscape
+		.block
+			header: h1 background-size: contain
+			p with a portrait oriented image
+			.element.contain.portrait
+		.block
+			header: h1 background-size: contain
+			p with a landscape oriented image
+			.element.contain.landscape
+
+	h2 The background-size plugin
+	section.plugin
+		p 
+			| This demo uses the actual plugin which is able to force the execution of the plugin on non IE (below 9) browsers. The actual plugin can receive two parameters:
+		pre.prettyprint.linenums
+			| $('.element').background({ force: true, size: 'cover' });
+
+		p The actual code from demo.js to render the examples below:
+		pre.prettyprint.linenums
+			| (function(window, $) {
+			|    $('.cover').background({
+			|        force: true,
+			|        size: 'cover'
+			|    });
+			|    $('.contain').background({
+			|        force: true,
+			|        size: 'contain'
+			|    });
+			| })(window, jQuery);
+
+	

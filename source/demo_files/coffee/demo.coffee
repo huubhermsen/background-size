@@ -1,4 +1,7 @@
 ((window, $)->
-	$('._example.cover.render').cover()
-	$('._example.contain.render').contain()
+	
+	$('.cover').background { force: true, size: 'cover' }
+	$('.contain').background { force: true, size: 'contain' }
+	return
+
 )(window, jQuery)

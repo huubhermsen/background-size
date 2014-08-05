@@ -2,62 +2,73 @@
  * Base layout
  */
 
- .center-view {
-	position: relative;
-	width: 960px;
-	margin: 0 auto;
-	@media screen and (min-width: 1200px) {
-		width: 1140px;
-	}
+html {
+	background-color: tint(black, 95%);
 }
 
-.demo {
-	margin: 30px 0;
-	header {
-		@include clearfix;
-		margin: 0 -30px 20px;
+body {
+	position: relative;
+	width: 960px;
+	margin: 50px auto;
+	background-color: white;
+	padding: 50px;
+}
+
+h1 {
+	margin: 0 0 1.5em;
+	font-weight: 100;
+}
+
+h2 {
+	margin: 1.5em 0 0;
+	font-weight: 100;
+}
+
+p, ul, ol {
+	color: tint(black, 30%);
+	font-weight: 300;
+	line-height: 20px;
+}
+
+.demo-container {
+	@include clearfix;
+	margin: 0 -30px;
+	.block {
+		margin-top: 30px;
+		width: 50%;
+		float: left;
 		h1 {
 			margin: 0 30px;
-			width: 100%;
-		}
-		h2 {
-			float: left;
-			width: 450px;
-			margin: 0 30px;
-			font-weight: 100;
-			color: tint(black, 35%);
-			@media screen and (min-width: 1200px) {
-				width: 540px;
+			font: {
+				size: 18px;
+				weight: 600;
 			}
 		}
-	}
-}
-._demo-examples {
-	@include clearfix;
-	margin: 30px -30px;
-}
-._example {
-	float: left;
-	width: 450px;
-	height: 300px;
-	margin: 0 30px;
-	background: {
-		image: url(../image/demo.jpg);
-		repeat: no-repeat;
-		color: tint(black, 95%);
-	}
-	&.centered {
-		background-position: center;
-	}
-	&.cover {
-		background-size: cover;
-		background-position: left top;
-	}
-	&.contain {
-		background-size: contain;
-		background-position: center;
-	}
-	@media screen and (min-width: 1200px) {
-		width: 540px;
+		p {
+			font-size: 14px;
+			margin: 0 30px 1em;
+		}
+		.element {
+			position: relative;
+			margin: 0 30px;
+			height: 240px;
+			background: {
+				color: tint(black, 95%);
+				repeat: no-repeat;
+				position: center;
+			}
+		}
+		.cover {
+			background-size: cover;
+		}
+		.contain {
+			background-size: contain;
+		}
+		.portrait {
+			background-image: url(../image/demo.jpg);
+		}
+		.landscape {
+			background-image: url(../image/demo-wide.jpg);
+		}
 	}
 }
