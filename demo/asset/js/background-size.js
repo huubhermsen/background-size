@@ -28,7 +28,7 @@
         }
       };
       calculate = function(el, image, k) {
-        var elementHeight, elementWidth, extraClass, height, imageHeight, imageWidth, left, newHeight, newWidth, overflow, top, width;
+        var elementHeight, elementWidth, extraClass, height, imageHeight, imageWidth, left, newHeight, newWidth, overflow, styleString, top, width;
         imageWidth = image.width();
         imageHeight = image.height();
         if (imageWidth === 0 || imageHeight === 0) {
@@ -49,8 +49,16 @@
           newWidth = Math.ceil(imageWidth / (imageHeight / height));
           left = position(el, BGX, elementWidth - newWidth, overflow);
         }
-        extraClass = el.css('position') === 'static' ? ".bgs-parent" + k + "{position:relative}" : "";
-        return style.append('<style>.bgs' + k + '{position:absolute;display:block;left:' + -left + 'px;top:' + -top + 'px;width: ' + newWidth + 'px;clip:rect(' + top + 'px,' + (width + left) + 'px,' + (height + top) + 'px,' + left + 'px);}' + extraClass + '</style>');
+        styleString = 'display:block;position:absolute;left:' + -left + 'px;top:' + -top + 'px;width: ' + newWidth + 'px;clip:rect(' + top + 'px ' + (width + left) + 'px ' + (height + top) + 'px ' + left + 'px);';
+        if (settings.isIE && settings.isIE < 8) {
+          image.attr('style', styleString);
+          if (el.css('position') === 'static') {
+            return el.css('position', 'relative');
+          }
+        } else {
+          extraClass = el.css('position') === 'static' ? ".bgs-parent" + k + "{position:relative}" : "";
+          return style.append('<style>.bgs' + k + '{' + styleString + '}' + extraClass + '</style>');
+        }
       };
       isIE = function() {
         var nav;
@@ -63,10 +71,12 @@
       };
       settings = {
         size: 'cover',
-        force: false
+        force: false,
+        isIE: false
       };
+      settings.isIE = isIE();
       settings = $.extend(settings, options);
-      if ((!isIE() || isIE() > 8) && settings.force === false) {
+      if ((!settings.isIE || settings.isIE > 8) && settings.force === false) {
         return this;
       }
       style = $('#bgs-styles');
