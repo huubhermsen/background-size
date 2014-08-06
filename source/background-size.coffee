@@ -45,9 +45,17 @@
 					newWidth = Math.ceil imageWidth / (imageHeight / height)
 					left = position el, BGX, elementWidth - newWidth, overflow
 
-				extraClass = if el.css('position') is 'static' then ".bgs-parent#{k}{position:relative}" else ""
-				style.append '<style>.bgs' + k + '{position:absolute;display:block;left:' + -left + 'px;top:' + -top + 'px;width: ' + newWidth + 'px;clip:rect(' + top + 'px,' + (width + left) + 'px,' + (height + top) + 'px,' + left + 'px);}' + extraClass + '</style>'
+				styleString = 'display:block;position:absolute;left:' + -left + 'px;top:' + -top + 'px;width: ' + newWidth + 'px;clip:rect(' + top + 'px ' + (width + left) + 'px ' + (height + top) + 'px ' + left + 'px);'
 
+				if settings.isIE and settings.isIE < 8
+					# attach styles directly on element
+					image.attr 'style', styleString
+					if el.css('position') is 'static' then el.css 'position', 'relative'
+				else
+					# append them to body as styles
+					extraClass = if el.css('position') is 'static' then ".bgs-parent#{k}{position:relative}" else ""
+					style.append '<style>.bgs' + k + '{' + styleString + '}' + extraClass + '</style>'
+				
 			isIE = ->
 				nav = navigator.userAgent.toLowerCase()
 				if nav.indexOf('msie') isnt -1 then parseInt nav.split('msie')[1] else false
@@ -56,11 +64,14 @@
 			settings = 
 				size: 'cover'
 				force: false
+				isIE: false
+
+			settings.isIE = isIE()
 
 			# Extend settings
 			settings = $.extend settings, options
 
-			if (!isIE() or isIE() > 8) and settings.force is false
+			if (!settings.isIE or settings.isIE > 8) and settings.force is false
 				return @
 
 			# Check if style element is present
